@@ -1,4 +1,5 @@
-<div class="input-container">
+<div class="input-container" [formGroup]="parentForm">
     <label>{{label}}</label>
-    <input [type]="type" [(ngModel)]="inputValue">
+    <input [readonly]="disabled" [type]="type" [formControlName]="inputFormName">
+    <app-message-error [form]="parentForm" [field]="inputFormName"></app-message-error>
 </div>
