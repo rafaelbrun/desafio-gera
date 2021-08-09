@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IUnidadeConsumidora } from 'src/app/shared/interfaces/IUnidadeConsumidora';
+import { UnidadeConsumidoraService } from 'src/app/shared/services/unidade-consumidora.service';
 
 @Component({
   selector: 'app-unidades-consumidora',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UnidadesConsumidoraComponent implements OnInit {
 
-  constructor() { }
+  unidadesConsumidora: IUnidadeConsumidora[] = [];
+
+  constructor(
+    private unidadeConsumidoraService: UnidadeConsumidoraService
+  ) { }
 
   ngOnInit(): void {
+    this.loadData();
   }
 
+  loadData() {
+    this.unidadeConsumidoraService.getAll()
+      .subscribe((unidadesConsumidora: IUnidadeConsumidora[]) => this.unidadesConsumidora = unidadesConsumidora);
+  }
 }

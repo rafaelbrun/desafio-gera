@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  url_api: 'https://api.dev.grupogera.com/processo-seletivo'
 };
