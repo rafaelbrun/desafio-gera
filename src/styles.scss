@@ -59,3 +59,9 @@ input[type=number] {
       transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .app-content { 
+    flex-direction: column;
+  }
+}

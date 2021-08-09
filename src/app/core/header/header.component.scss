@@ -7,31 +7,91 @@
 
     .logo-container {
         padding: .5rem 1.5rem;
-    }
 
-    .title-container {
-        align-self: center;
+        .image-logo {
+            display: block;
+        }
 
-        p {
-            color: white;
-            letter-spacing: 2px;
-            font-size: 24px;
+        .image-icon {
+            display: none;
         }
     }
 
-    .profile-container {
-        align-self: center;
-        text-align: end;
-        padding: 0 1.5rem;
+    .text-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 85%;
 
-        p {
-            color: white;
-            letter-spacing: 2px;
-            font-size: 16px;
+        .title-container {
+            align-self: center;
+            justify-self: center;
+
+            p {
+                color: white;
+                letter-spacing: 2px;
+                font-size: 24px;
+            }
         }
 
-        p:nth-child(1) {
-            margin-bottom: .5rem;
+        .profile-container {
+            align-self: center;
+            text-align: end;
+            padding: 0 1.5rem;
+
+            p {
+                color: white;
+                letter-spacing: 2px;
+                font-size: 16px;
+            }
+
+            p:nth-child(1) {
+                margin-bottom: .5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 772px) {
+    ::ng-deep .header-container {
+        .logo-container {
+
+            .image-logo {
+                display: none;
+            }
+
+            .image-icon {
+                display: block;
+            }
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+
+            .profile-container {
+                display: flex;
+                flex-direction: row;
+
+                p:nth-child(1) {
+                    margin-right: 1rem;
+                }
+            }
+
+            .title-container {
+                justify-self: center;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 580px) {
+    ::ng-deep .header-container {
+
+        .text-container {
+            .profile-container {
+                display: none;
+            }
         }
     }
 }

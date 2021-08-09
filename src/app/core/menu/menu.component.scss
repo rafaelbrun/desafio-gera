@@ -24,3 +24,36 @@
         background-color: #E27231;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    ::ng-deep .side-bar {
+        display: flex;
+        flex-direction: row;
+
+        .navigate-option {
+            width: 12rem;
+            text-align: center;
+    
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 580px) { 
+    ::ng-deep .side-bar {
+        display: flex;
+        flex-direction: row;
+
+        .navigate-option {
+            padding: 0 .3rem;
+            width: 11rem;
+            text-align: center;
+    
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+}
