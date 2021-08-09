@@ -40,8 +40,8 @@
                 </td>
             </tr>
         </table>
-        <span *ngIf="hasError" class="input-message-error">{{messageError}}</span>
     </div>
+    <span *ngIf="hasError" class="message-error">{{messageError}}</span>
     <div class="buttons-container">
         <div class="grid-button-cancel">
             <app-button [buttonLabel]="cancelButtonLabel" class="button-save" [type]="'cancel'" [iconName]="faArrowLeft"

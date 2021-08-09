@@ -20,8 +20,6 @@
             grid-template-columns: auto auto;
             column-gap: 2rem;
             row-gap: 1rem;
-
-
         }
 
         .column-title {
@@ -60,17 +58,16 @@
                 }
             }
         }
+    }
 
-
-        .input-message-error {
-            color: white;
-            background-color: #f44336;
-            padding: 4px 8px;
-            justify-self: end;
-            margin-top: 1rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
+    .message-error {
+        color: white;
+        background-color: #f44336;
+        padding: 4px 8px;
+        justify-self: end;
+        margin-top: 1rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
     }
 
     .buttons-container {
