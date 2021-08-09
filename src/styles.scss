@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.app-content {
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 120px);
+
+    .container {
+        flex: 1;
+        padding: 2rem;
+    }
+}
+
+
