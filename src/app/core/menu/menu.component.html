@@ -1,8 +1,9 @@
 <div class="side-bar">
-    <div (click)="navigateTo('unidades-consumidora')" class="navigate-option">
-        <p>UNIDADE CONSUMIDORA</p>
+    <div (click)="navigateTo('unidades-consumidora')" class="navigate-option"
+        [ngClass]="{'is-foccused': isUnidadeConsumidora}">
+        <p>UNIDADES CONSUMIDORA</p>
     </div>
-    <div (click)="navigateTo('faturas')" class="navigate-option">
+    <div (click)="navigateTo('faturas')" class="navigate-option" [ngClass]="{'is-foccused': !isUnidadeConsumidora}">
         <p>FATURAS</p>
     </div>
 </div>

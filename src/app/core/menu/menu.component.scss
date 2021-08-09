@@ -1,7 +1,6 @@
 ::ng-deep .side-bar {
-    min-height: calc(100vh - 140px);
+    height: 100%;
     background-color: rgb(27, 27, 27);
-    padding: 1rem 0;
 
     .navigate-option {
         padding: 0 1rem;
@@ -16,12 +15,12 @@
         }
     }
 
+    .is-foccused {
+        background-color: #E27231;
+    }
+
     .navigate-option:hover,
     :focus {
         background-color: #E27231;
-
-        p {
-            color: black;
-        }
     }
 }
