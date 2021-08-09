@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEye, faPencilAlt, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { IUnidadeConsumidora } from 'src/app/shared/interfaces/IUnidadeConsumidora';
 import { UnidadeConsumidoraService } from 'src/app/shared/services/unidade-consumidora.service';
 
@@ -9,7 +10,14 @@ import { UnidadeConsumidoraService } from 'src/app/shared/services/unidade-consu
 })
 export class UnidadesConsumidoraComponent implements OnInit {
 
+  faEye = faEye;
+  faPencil = faPencilAlt;
+  faTrash = faTrash;
+  faPlus = faPlus;
+
   unidadesConsumidora: IUnidadeConsumidora[] = [];
+
+  isLoading: boolean = false;
 
   constructor(
     private unidadeConsumidoraService: UnidadeConsumidoraService
@@ -20,7 +28,11 @@ export class UnidadesConsumidoraComponent implements OnInit {
   }
 
   loadData() {
+    this.isLoading = true;
     this.unidadeConsumidoraService.getAll()
-      .subscribe((unidadesConsumidora: IUnidadeConsumidora[]) => this.unidadesConsumidora = unidadesConsumidora);
+      .subscribe((unidadesConsumidora: IUnidadeConsumidora[]) => {
+        this.unidadesConsumidora = unidadesConsumidora;
+        this.isLoading = false;
+      });
   }
 }

@@ -5,6 +5,7 @@ import { UnidadeConsumidoraComponent } from './unidade-consumidora/unidade-consu
 import { UnidadeConsumidoraRoutingModule } from './unidade-consumidora-routing.module';
 import { CoreModule } from 'src/app/core/core.module';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +18,8 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
     CommonModule,
     CoreModule,
     ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
     UnidadeConsumidoraRoutingModule
   ]
 })

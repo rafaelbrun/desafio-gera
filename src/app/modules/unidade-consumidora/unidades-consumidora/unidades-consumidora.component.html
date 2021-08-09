@@ -1,1 +1,53 @@
-<p>unidades-consumidora works!</p>
+<div class="unidade-consumidora-main">
+    <div class="button-container">
+        <app-button [buttonLabel]="'ADICIONAR'" [iconName]="faPlus"
+            [routerLink]="'/unidades-consumidora/unidade-consumidora'"></app-button>
+    </div>
+    <table class="table-container" *ngIf="!isLoading">
+        <tr class="table-header">
+            <th>#</th>
+            <th>Nome</th>
+            <th>Distribuidora</th>
+            <th>Faturas(un)</th>
+            <th>Endereço</th>
+            <th>Número</th>
+            <th>Ações</th>
+        </tr>
+        <tr class="table-body" *ngFor="let unidadeConsumidora of unidadesConsumidora; let i = index">
+            <td class="text-center">
+                <span class="column-title">#</span>
+                {{i}}
+            </td>
+            <td>
+                <span class="column-title">Nome</span>
+                {{unidadeConsumidora.nome}}
+            </td>
+            <td>
+                <span class="column-title">Distribuidora</span>
+                {{unidadeConsumidora.distribuidora}}
+            </td>
+            <td class="text-center">
+                <span class="column-title">Faturas(un)</span>
+                {{unidadeConsumidora.faturas?.length || 0}}
+            </td>
+            <td>
+                <span class="column-title">Endereço</span>
+                {{unidadeConsumidora.endereco}}
+            </td>
+            <td class="text-center">
+                <span class="column-title">Número</span>
+                {{unidadeConsumidora.numero}}
+            </td>
+            <td class="text-center actions-container">
+                <span class="column-title">Ações</span>
+                <fa-icon class="blue-icon" [icon]="faEye"></fa-icon>
+                <fa-icon class="gray-icon" [icon]="faPencil"></fa-icon>
+                <fa-icon class="red-icon" [icon]="faTrash"></fa-icon>
+            </td>
+        </tr>
+        <div class="table-footer">
+
+        </div>
+    </table>
+    <div class="loader" *ngIf="isLoading"></div>
+</div>

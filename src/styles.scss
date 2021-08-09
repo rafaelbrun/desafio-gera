@@ -3,17 +3,36 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: 'Ubuntu Condensed', sans-serif;
+    height: 100vh;
 }
 
 * {
     margin: 0px;
     padding: 0px;
+    letter-spacing: 1px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .app-content {
     display: flex;
     flex-direction: row;
-    min-height: calc(100vh - 160px);
+    min-height: calc(100vh - 127px);
 
     .container {
         flex: 1;
