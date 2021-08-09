@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.isUnidadeConsumidora = this.location.path() === '/unidades-consumidora';
+    this.isUnidadeConsumidora = this.location.path().includes('/unidades-consumidora');
   }
 
   navigateTo(address: string) {
