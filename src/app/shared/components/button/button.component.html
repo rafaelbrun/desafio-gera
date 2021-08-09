@@ -1,4 +1,4 @@
-<div class="button-app">
+<div class="button-app" [ngClass]="{'button-cancel': type != 'orange'}">
 	<fa-icon *ngIf="iconName" [icon]="iconName"></fa-icon>
 	{{buttonLabel}}
 </div>

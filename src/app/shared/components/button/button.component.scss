@@ -1,19 +1,31 @@
 @import '../../../../assets/scss/variables.scss';
 
-::ng-deep .button-app {
+.button-app {
     align-self: flex-end;
-    width: fit-content;
+    width: 8rem;
+    text-align: center;
     padding: .7rem 2rem;
     border-radius: 30px;
     cursor: pointer;
-    background-color: white;
+    background-color: $orange;
+    color: white;
     border: 2px solid $orange;
-    color: $orange;
     transition: .3s;
 }
 
 .button-app:hover {
-    border: 2px solid white;
-    background-color: $orange;
+    background-color: lighten($orange, 15%);
+    border-color: lighten($orange, 15%);
+}
+
+.button-cancel {
+    background-color: white;
+    color: #1b1b1b;
+    border: 2px solid #1b1b1b;
+}
+
+.button-cancel:hover {
+    background-color: #1b1b1b;
     color: white;
+    border: 2px solid #1b1b1b;
 }
