@@ -40,14 +40,14 @@
             </td>
             <td class="text-center actions-container">
                 <span class="column-title">Ações</span>
-                <fa-icon class="blue-icon" [icon]="faEye"></fa-icon>
-                <fa-icon class="gray-icon" [icon]="faPencil"></fa-icon>
-                <fa-icon class="red-icon" [icon]="faTrash"></fa-icon>
+                <fa-icon (click)="handleViewUnidadeConsumidora(unidadeConsumidora)" class="blue-icon" [icon]="faEye">
+                </fa-icon>
+                <fa-icon (click)="handleEditUnidadeConsumidora(unidadeConsumidora)" class="gray-icon" [icon]="faPencil">
+                </fa-icon>
+                <fa-icon (click)="handleDeleteUnidadeConsumidora(unidadeConsumidora.id, unidadeConsumidora.nome)"
+                    class="red-icon" [icon]="faTrash"></fa-icon>
             </td>
         </tr>
-        <div class="table-footer">
-
-        </div>
     </table>
     <div class="loader" *ngIf="isLoading"></div>
 </div>

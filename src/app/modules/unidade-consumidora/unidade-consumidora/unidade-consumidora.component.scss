@@ -3,27 +3,81 @@
     flex-direction: column;
     align-items: center;
 
-    .form-container {
-        margin-top: 4rem;
-        padding: 1rem 2rem;
+    .main-container {
         width: 80%;
-        display: grid;
-        grid-template-columns: auto auto;
-        column-gap: 2rem;
-        row-gap: 1rem;
+        margin-top: 4rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         border: 1px solid #dadada;
         border-radius: 4px;
 
-        .grid-button-cancel {
-            margin-top: 5rem;
-            justify-self: start;
-            align-items: flex-start;
+        .form-container {
+            padding: 1rem 2rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 2rem;
+            row-gap: 1rem;
+
+
         }
 
-        .grid-button-save {
-            margin-top: 5rem;
-            justify-self: end;
-            align-items: flex-end;
+        .column-title {
+            display: none;
         }
+
+        .table-container {
+            width: 60rem;
+            margin-top: 1rem;
+            border-collapse: collapse;
+            font-size: 14px;
+
+            label {
+                font-size: 14px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f7f7f7;
+            }
+
+            .table-header {
+                border-bottom: 1px solid #000000;
+
+                th {
+                    padding: .5rem 1rem;
+                    border: 1px solid #e9e9e9;
+                    border-bottom-color: #cecece;
+                }
+            }
+
+            .table-body {
+                td {
+                    padding: 1rem;
+                    border: 1px solid #e9e9e9;
+                    text-align: center;
+                }
+            }
+        }
+
+
+        .input-message-error {
+            color: white;
+            background-color: #f44336;
+            padding: 4px 8px;
+            justify-self: end;
+            margin-top: 1rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 4rem;
     }
 }

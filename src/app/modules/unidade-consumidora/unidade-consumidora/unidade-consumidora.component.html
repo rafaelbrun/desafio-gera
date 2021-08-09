@@ -1,1 +1,57 @@
-<p>unidade-consumidora works!</p>
+<div class="new-uc-main">
+    <div class="main-container">
+        <form [formGroup]="formUnidadeConsumidora" class="form-container">
+            <app-input [disabled]="inputDisabled" [parentForm]="formUnidadeConsumidora" inputFormName="nome"
+                [label]="'Nome *'"></app-input>
+            <app-input [disabled]="inputDisabled" [parentForm]="formUnidadeConsumidora" inputFormName="distribuidora"
+                [label]="'Distribuidora *'">
+            </app-input>
+            <app-input [disabled]="inputDisabled" [parentForm]="formUnidadeConsumidora" inputFormName="endereco"
+                [label]="'Endereço *'">
+            </app-input>
+            <app-input [disabled]="inputDisabled" [parentForm]="formUnidadeConsumidora" inputFormName="numero"
+                [type]="'number'" [label]="'Número *'">
+            </app-input>
+        </form>
+        <table class="table-container" *ngIf="unidadeConsumidoraEdit?.faturas.length > 0 && isViewing">
+            <label>Faturas</label>
+            <tr class="table-header">
+                <th>#</th>
+                <th>Consumo</th>
+                <th>Valor</th>
+                <th>Data de vencimento</th>
+            </tr>
+            <tr class="table-body" *ngFor="let fatura of unidadeConsumidoraEdit.faturas; let i = index">
+                <td class="text-center">
+                    <span class="column-title">#</span>
+                    {{i}}
+                </td>
+                <td>
+                    <span class="column-title">Consumo</span>
+                    {{fatura.consumo}}
+                </td>
+                <td>
+                    <span class="column-title">Valor</span>
+                    {{fatura.valor | currency:'BRL'}}
+                </td>
+                <td class="text-center">
+                    <span class="column-title">Data de vencimento</span>
+                    {{fatura.data_de_vencimento}}
+                </td>
+            </tr>
+        </table>
+        <span *ngIf="hasError" class="input-message-error">{{messageError}}</span>
+    </div>
+    <div class="buttons-container">
+        <div class="grid-button-cancel">
+            <app-button [buttonLabel]="cancelButtonLabel" class="button-save" [type]="'cancel'" [iconName]="faArrowLeft"
+                [routerLink]="'/unidades-consumidora'">
+            </app-button>
+        </div>
+        <div *ngIf="!isViewing" class="grid-button-save">
+            <app-button *ngIf="!isLoading" [buttonLabel]="'SALVAR'" class="button-save"
+                (click)="handleSaveUnidadeConsumidora()" [iconName]="faCheck"></app-button>
+            <div *ngIf="isLoading" class="loader"></div>
+        </div>
+    </div>
+</div>

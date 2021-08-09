@@ -13,4 +13,16 @@ export class UnidadeConsumidoraService {
 	getAll(): Observable<IUnidadeConsumidora[]> {
 		return this.http.get<IUnidadeConsumidora[]>(`${environment.url_api}/unidadeConsumidora`);
 	}
+
+	post(unidadeConsumidora: IUnidadeConsumidora): Observable<IUnidadeConsumidora> {
+		return this.http.post<IUnidadeConsumidora>(`${environment.url_api}/unidadeConsumidora`, unidadeConsumidora);
+	}
+
+	delete(id: number) {
+		return this.http.delete(`${environment.url_api}/unidadeConsumidora/${id}`);
+	}
+
+	put(id: number, unidadeConsumidora: IUnidadeConsumidora): Observable<IUnidadeConsumidora> {
+		return this.http.put<IUnidadeConsumidora>(`${environment.url_api}/unidadeConsumidora/${id}`, unidadeConsumidora);
+	}
 }
