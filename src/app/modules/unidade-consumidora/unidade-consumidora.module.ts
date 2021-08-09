@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UnidadesConsumidoraComponent } from './unidades-consumidora/unidades-consumidora.component';
 import { UnidadeConsumidoraComponent } from './unidade-consumidora/unidade-consumidora.component';
 import { UnidadeConsumidoraRoutingModule } from './unidade-consumidora-routing.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 
 
@@ -13,6 +15,8 @@ import { UnidadeConsumidoraRoutingModule } from './unidade-consumidora-routing.m
   ],
   imports: [
     CommonModule,
+    CoreModule,
+    ComponentsModule,
     UnidadeConsumidoraRoutingModule
   ]
 })
