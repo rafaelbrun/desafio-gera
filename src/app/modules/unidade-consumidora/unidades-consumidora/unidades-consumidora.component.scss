@@ -81,3 +81,50 @@
         text-align: center;
     }
 }
+
+@media screen and (max-width: 772px) {
+    ::ng-deep .unidade-consumidora-main {
+
+        .button-container {
+            width: 100%;
+        }
+
+        .table-container {
+            .table-header {
+                border: none;
+            }
+
+            tr>th {
+                display: none !important;
+            }
+
+            tr>td {
+                text-align: left;
+                display: block;
+                width: 100;
+                padding: 0.5rem !important;
+                border: none !important;
+                border-bottom: 1px solid #e2e2e2 !important;
+                justify-content: center;
+
+                .column-title {
+                    padding: .4rem;
+                    min-width: 30%;
+                    display: inline-block;
+                    margin: -.4em 1em -.4em -.4rem;
+                    font-weight: bold;
+                }
+
+                &:first-child {
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: 16px;
+                }
+
+                &:last-child {
+                    border-bottom: 1px solid black !important;
+                }
+            }
+        }
+    }
+}

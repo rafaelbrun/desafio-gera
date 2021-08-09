@@ -29,3 +29,10 @@
     color: white;
     border: 2px solid #222222;
 }
+
+@media screen and (max-width: 580px) { 
+    .button-app { 
+        font-size: 14px;
+        padding: .4rem 1rem;
+    }
+ }
