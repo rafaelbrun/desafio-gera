@@ -1,0 +1,19 @@
+@import '../../../../assets/scss/variables.scss';
+
+::ng-deep .button-app {
+    align-self: flex-end;
+    width: fit-content;
+    padding: .7rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid $orange;
+    color: $orange;
+    transition: .3s;
+}
+
+.button-app:hover {
+    border: 2px solid white;
+    background-color: $orange;
+    color: white;
+}

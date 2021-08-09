@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/variables.scss';
+
+::ng-deep .input-container {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+
+    label {
+        margin-bottom: .3rem;
+        font-size: 14px;
+    }
+
+    input {
+        padding: .3rem .6rem;
+        border: 1px solid white;
+        background-color: #fdf3ed;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input:hover,
+    input:focus {
+        border: 1px solid $orange;
+    }
+}
