@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faEye, faPencilAlt, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { IUnidadeConsumidora } from 'src/app/shared/interfaces/IUnidadeConsumidora';
-import { StorageService } from 'src/app/shared/services/storage.service';
 import { UnidadeConsumidoraService } from 'src/app/shared/services/unidade-consumidora.service';
 
 @Component({
@@ -23,8 +22,7 @@ export class UnidadesConsumidoraComponent implements OnInit {
 
   constructor(
     private unidadeConsumidoraService: UnidadeConsumidoraService,
-    private router: Router,
-    private storageService: StorageService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,21 +38,18 @@ export class UnidadesConsumidoraComponent implements OnInit {
       });
   }
 
-  async handleEditUnidadeConsumidora(uc: IUnidadeConsumidora) {
-    this.storageService.setValue(uc);
-    await this.router.navigate(['/unidades-consumidora/unidade-consumidora'], {
-      queryParams: {
-        editing: true
-      }
-    });
+  async handleEditUnidadeConsumidora(id: number) {
+    this.navigateToUnidadeConsumidora(id, true);
   }
 
-  async handleViewUnidadeConsumidora(uc: IUnidadeConsumidora) {
-    this.storageService.setValue(uc);
+  handleViewUnidadeConsumidora(id: number) {
+    this.navigateToUnidadeConsumidora(id, false);
+  }
+
+  async navigateToUnidadeConsumidora(id: number, editing: boolean) {
+    const queryParams = editing ? { id, editing } : { id };
     await this.router.navigate(['/unidades-consumidora/unidade-consumidora'], {
-      queryParams: {
-        viewing: true
-      }
+      queryParams
     });
   }
 

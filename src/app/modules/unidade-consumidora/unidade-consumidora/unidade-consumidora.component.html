@@ -1,4 +1,4 @@
-<div class="new-uc-main">
+<div *ngIf="!isLoading"  class="new-uc-main">
     <div class="main-container">
         <form [formGroup]="formUnidadeConsumidora" class="form-container">
             <app-input [disabled]="inputDisabled" [parentForm]="formUnidadeConsumidora" inputFormName="nome"
@@ -49,9 +49,11 @@
             </app-button>
         </div>
         <div *ngIf="!isViewing" class="grid-button-save">
-            <app-button *ngIf="!isLoading" [buttonLabel]="'SALVAR'" class="button-save"
+            <app-button [buttonLabel]="'SALVAR'" class="button-save"
                 (click)="handleSaveUnidadeConsumidora()" [iconName]="faCheck"></app-button>
-            <div *ngIf="isLoading" class="loader"></div>
         </div>
     </div>
+</div>
+<div class=loader-container>
+    <div *ngIf="isLoading" class="loader"></div>
 </div>

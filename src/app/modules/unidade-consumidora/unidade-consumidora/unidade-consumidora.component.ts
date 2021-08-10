@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUnidadeConsumidora } from '@app/shared/interfaces/IUnidadeConsumidora';
-import { StorageService } from '@app/shared/services/storage.service';
 import { UnidadeConsumidoraService } from '@app/shared/services/unidade-consumidora.service';
 import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 
@@ -31,8 +30,7 @@ export class UnidadeConsumidoraComponent implements OnInit {
     private formBuilder: FormBuilder,
     private unidadeConsumidoraService: UnidadeConsumidoraService,
     private router: Router,
-    private actRouter: ActivatedRoute,
-    private storageService: StorageService
+    private actRouter: ActivatedRoute
   ) {
     this.setFormUnidadeConsummidora();
   }
@@ -43,18 +41,19 @@ export class UnidadeConsumidoraComponent implements OnInit {
 
   loadData() {
     this.actRouter.queryParams.subscribe(async (queryParams: any) => {
-      if (queryParams.editing || queryParams.viewing) {
-        this.unidadeConsumidoraEdit = this.storageService.getValue();
+      if (queryParams.id) {
+        this.isLoading = true;
+        this.unidadeConsumidoraService.getById(queryParams.id).subscribe((unidade) => {
+          this.unidadeConsumidoraEdit = unidade[0];
+          this.isLoading = false;
+          this.setFormUnidadeConsummidora(this.unidadeConsumidoraEdit);
+        });
       }
 
-      if (queryParams.viewing) {
+      if (!queryParams.editing && queryParams.id) {
         this.isViewing = true;
         this.inputDisabled = true;
         this.cancelButtonLabel = 'VOLTAR';
-      }
-
-      if (this.unidadeConsumidoraEdit) {
-        this.setFormUnidadeConsummidora(this.unidadeConsumidoraEdit);
       }
     });
   }

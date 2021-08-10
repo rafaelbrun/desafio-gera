@@ -39,9 +39,9 @@
             </td>
             <td class="text-center actions-container">
                 <span class="column-title">Ações</span>
-                <fa-icon (click)="handleViewUnidadeConsumidora(unidadeConsumidora)" class="blue-icon" [icon]="faEye">
+                <fa-icon (click)="handleViewUnidadeConsumidora(unidadeConsumidora.id)" class="blue-icon" [icon]="faEye">
                 </fa-icon>
-                <fa-icon (click)="handleEditUnidadeConsumidora(unidadeConsumidora)" class="gray-icon" [icon]="faPencil">
+                <fa-icon (click)="handleEditUnidadeConsumidora(unidadeConsumidora.id)" class="gray-icon" [icon]="faPencil">
                 </fa-icon>
                 <fa-icon (click)="handleDeleteUnidadeConsumidora(unidadeConsumidora.id, unidadeConsumidora.nome)"
                     class="red-icon" [icon]="faTrash"></fa-icon>
