@@ -1,1 +1,45 @@
-<p>faturas works!</p>
+<div class="unidade-consumidora-main">
+    <div class="button-container">
+        <app-button [buttonLabel]="'ADICIONAR'" [iconName]="faPlus"
+            [routerLink]="'/faturas/fatura'"></app-button>
+    </div>
+    <table class="table-container" *ngIf="!isLoading">
+        <tr class="table-header">
+            <th>#</th>
+            <th>Consumo</th>
+            <th>Valor</th>
+            <th>Unidade Consumidora</th>
+            <th>Data de vencimento</th>
+            <th>Ações</th>
+        </tr>
+        <tr class="table-body" *ngFor="let fatura of faturas; let i = index">
+            <td class="text-center">
+                {{i+1}}
+            </td>
+            <td class="text-center">
+                <span class="column-title">Consumo</span>
+                {{fatura.consumo}}
+            </td>
+            <td class="text-center">
+                <span class="column-title">Valor</span>
+                {{fatura.valor | currency:'BRL'}}
+            </td>
+            <td>
+                <span class="column-title">Unidade Consumidora</span>
+                {{fatura.ucNome}}
+            </td>
+            <td class="text-center">
+                <span class="column-title">Data de vencimento</span>
+                {{fatura.data_de_vencimento}}
+            </td>
+            <td class="text-center actions-container">
+                <span class="column-title">Ações</span>
+                <fa-icon (click)="handleEditFatura(fatura.id)" class="gray-icon" [icon]="faPencil">
+                </fa-icon>
+                <fa-icon (click)="handleDeleteFatura(fatura.id, fatura.valor.toString())" class="red-icon"
+                    [icon]="faTrash"></fa-icon>
+            </td>
+        </tr>
+    </table>
+    <div class="loader" *ngIf="isLoading"></div>
+</div>

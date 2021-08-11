@@ -1,1 +1,39 @@
-<p>fatura works!</p>
+<div *ngIf="!isLoading" class="new-fatura-main">
+    <div class="main-container">
+        <form [formGroup]="formUnidadeConsumidora" class="form-container">
+            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="consumo" [type]="'number'"
+                [label]="'Consumo *'"></app-input>
+            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="valor" [type]="'number'"
+                [label]="'Valor *'">
+            </app-input>
+
+            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="data_de_vencimento" [type]="'number'"
+                [label]="'Data de vencimento *'">
+            </app-input>
+        </form>
+        <div class="select-uc-container">
+            <label>
+                Unidade Consumidora *
+            </label>
+            <select id="uc" [(ngModel)]="ucIdSelected" (change)="handleChangeSelect($event.target)">
+                <option *ngFor="let unidadeConsumidora of unidadesConsumidora" [value]="unidadeConsumidora.id">
+                    {{unidadeConsumidora.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <span *ngIf="hasError" class="message-error">{{messageError}}</span>
+    <div class="buttons-container">
+        <div class="grid-button-cancel">
+            <app-button [buttonLabel]="'CANCELAR'" class="button-save" [type]="'cancel'" [iconName]="faArrowLeft"
+                [routerLink]="'/faturas'">
+            </app-button>
+        </div>
+        <div class="grid-button-save">
+            <app-button [buttonLabel]="'SALVAR'" class="button-save" (click)="handleSaveUnidadeConsumidora()"
+                [iconName]="faCheck"></app-button>
+        </div>
+    </div>
+</div>
+<div class=loader-container>
+    <div *ngIf="isLoading" class="loader"></div>
+</div>

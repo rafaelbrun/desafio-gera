@@ -1,0 +1,117 @@
+@import '../../../../assets/scss/variables.scss';
+
+::ng-deep .new-fatura-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main-container {
+        width: 80%;
+        margin-top: 4rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #dadada;
+        border-radius: 4px;
+
+        .form-container {
+            padding: 1rem 2rem;
+            width: 100%;
+            max-width: 20rem;
+            display: grid;
+            grid-template-columns: auto;
+            column-gap: 2rem;
+            row-gap: 1rem;
+        }
+
+        .column-title {
+            display: none;
+        }
+
+        .table-container {
+            width: 60rem;
+            margin-top: 1rem;
+            border-collapse: collapse;
+            font-size: 14px;
+
+            label {
+                font-size: 14px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f7f7f7;
+            }
+
+            .table-header {
+                border-bottom: 1px solid #000000;
+
+                th {
+                    padding: .5rem 1rem;
+                    border: 1px solid #e9e9e9;
+                    border-bottom-color: #cecece;
+                }
+            }
+
+            .table-body {
+                td {
+                    padding: 1rem;
+                    border: 1px solid #e9e9e9;
+                    text-align: center;
+                }
+            }
+        }
+
+        .select-uc-container {
+            width: 100%;
+            max-width: 19rem;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 2rem;
+
+            label {
+                margin-bottom: .3rem;
+                font-size: 14px;
+            }
+
+            select {
+                padding: .5rem 1rem;
+                border: 1px solid white;
+                background-color: #fce7da;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            select:hover,
+            select:focus {
+                border: 1px solid $orange;
+            }
+        }
+    }
+
+    .message-error {
+        color: white;
+        background-color: #f44336;
+        padding: 4px 8px;
+        justify-self: end;
+        margin-top: 1rem;
+        border-radius: 5px;
+        font-size: 0.8rem;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        margin-top: 4rem;
+    }
+}
+
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
