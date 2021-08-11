@@ -125,6 +125,12 @@
                     border-bottom: 1px solid black !important;
                 }
             }
+
+            tr:last-child {
+                td:last-child {
+                    border: none !important;
+                }
+            }
         }
     }
 }
