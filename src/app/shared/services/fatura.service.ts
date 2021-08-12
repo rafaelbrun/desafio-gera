@@ -17,8 +17,8 @@ export class FaturaService {
 		return this.http.get<IFatura[]>(`${environment.url_api}/${this.baseUrl}`);
 	}
 
-	getById(id: number): Observable<IFatura[]> {
-		return this.http.get<IFatura[]>(`${environment.url_api}/${this.baseUrl}/${id}`);
+	getById(id: number): Observable<IFatura> {
+		return this.http.get<IFatura>(`${environment.url_api}/${this.baseUrl}/${id}`);
 	}
 
 	post(fatura: IFatura): Observable<IFatura> {

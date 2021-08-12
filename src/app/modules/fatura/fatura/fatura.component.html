@@ -6,16 +6,15 @@
             <app-input [parentForm]="formUnidadeConsumidora" inputFormName="valor" [type]="'number'"
                 [label]="'Valor *'">
             </app-input>
-
-            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="data_de_vencimento" [type]="'number'"
-                [label]="'Data de vencimento *'">
+            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="data_de_vencimento"
+                [label]="'Data de vencimento * (dd/mm/aaaa)'">
             </app-input>
         </form>
         <div class="select-uc-container">
             <label>
                 Unidade Consumidora *
             </label>
-            <select id="uc" [(ngModel)]="ucIdSelected" (change)="handleChangeSelect($event.target)">
+            <select id="uc" [(ngModel)]="ucIdSelected">
                 <option *ngFor="let unidadeConsumidora of unidadesConsumidora" [value]="unidadeConsumidora.id">
                     {{unidadeConsumidora.nome}}</option>
             </select>
