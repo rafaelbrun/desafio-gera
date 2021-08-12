@@ -23,3 +23,9 @@
         border: 1px solid $orange;
     }
 }
+
+@media screen and (max-width: 480px) { 
+    ::ng-deep .input-container {
+        width: 90%;
+    }
+}

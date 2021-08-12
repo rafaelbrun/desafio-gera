@@ -27,7 +27,7 @@
         }
 
         .table-container {
-            width: 60rem;
+            max-width: 60rem;
             margin-top: 1rem;
             border-collapse: collapse;
             font-size: 14px;
@@ -36,7 +36,7 @@
                 font-size: 14px;
             }
 
-            tr:nth-child(even) {
+            tr:nth-child(2n - 1) {
                 background-color: #f7f7f7;
             }
 
@@ -84,4 +84,83 @@
     align-items: center;
     justify-content: center;
     margin-top: 3rem;
+}
+
+@media screen and (max-width: 772px) {
+    ::ng-deep .new-uc-main {
+        .main-container {
+            .form-container {
+                grid-template-columns: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 772px) {
+    .table-container {
+        .table-header {
+            border: none;
+        }
+
+        tr>th {
+            display: none !important;
+        }
+
+        tr>td {
+            text-align: left;
+            display: block;
+            width: 100;
+            padding: 0.5rem !important;
+            border: none !important;
+            border-bottom: 1px solid #e2e2e2 !important;
+            justify-content: center;
+
+            .column-title {
+                padding: .4rem;
+                min-width: 30%;
+                display: inline-block;
+                margin: -.4em 1em -.4em -.4rem;
+                font-weight: bold;
+            }
+
+            &:first-child {
+                font-weight: bold;
+                text-align: center;
+                font-size: 16px;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid black !important;
+            }
+        }
+
+        tr:last-child {
+            td:last-child {
+                border: none !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    ::ng-deep .new-uc-main {
+        .main-container {
+            padding: 1rem .5rem;
+            width: 95%;
+
+            .form-container {
+                padding: 1rem;
+            }
+        }
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        div:nth-child(2) {
+            margin-bottom: 1rem;
+        }
+    }
 }

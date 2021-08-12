@@ -115,3 +115,15 @@
     justify-content: center;
     margin-top: 3rem;
 }
+
+@media screen and (max-width: 480px) { 
+    .buttons-container { 
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        div:nth-child(2) {
+            margin-bottom: 1rem;
+        }
+    }
+}
