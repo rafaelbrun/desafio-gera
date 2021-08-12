@@ -28,6 +28,8 @@
             <td class="text-center">
                 <span class="column-title">Faturas(un)</span>
                 {{unidadeConsumidora.faturas?.length || 0}}
+                <fa-icon class="plus-faturas" [icon]="faPlus" (click)="openNewFaturaModal(unidadeConsumidora.id)">
+                </fa-icon>
             </td>
             <td>
                 <span class="column-title">Endereço</span>
@@ -41,7 +43,8 @@
                 <span class="column-title">Ações</span>
                 <fa-icon (click)="handleViewUnidadeConsumidora(unidadeConsumidora.id)" class="blue-icon" [icon]="faEye">
                 </fa-icon>
-                <fa-icon (click)="handleEditUnidadeConsumidora(unidadeConsumidora.id)" class="gray-icon" [icon]="faPencil">
+                <fa-icon (click)="handleEditUnidadeConsumidora(unidadeConsumidora.id)" class="gray-icon"
+                    [icon]="faPencil">
                 </fa-icon>
                 <fa-icon (click)="handleDeleteUnidadeConsumidora(unidadeConsumidora.id, unidadeConsumidora.nome)"
                     class="red-icon" [icon]="faTrash"></fa-icon>
@@ -49,4 +52,29 @@
         </tr>
     </table>
     <div class="loader" *ngIf="isLoading"></div>
+</div>
+
+<div *ngIf="modelNewFatura" class="modal-new-fatura">
+
+    <div class="modal-content">
+        <div class="header">
+            <strong>Nova Fatura</strong>
+            <span class="close-button" (click)="modelNewFatura = false">&times;</span>
+        </div>
+        <form [formGroup]="formFatura" class="form-container">
+            <app-input [parentForm]="formFatura" inputFormName="consumo" [type]="'number'" [label]="'Consumo *'">
+            </app-input>
+            <app-input [parentForm]="formFatura" inputFormName="valor" [type]="'number'" [label]="'Valor *'">
+            </app-input>
+            <app-input [parentForm]="formFatura" inputFormName="data_de_vencimento"
+                [label]="'Data de vencimento * (dd/mm/aaaa)'">
+            </app-input>
+        </form>
+        <fa-icon *ngIf="!isLoading" class="add-button" [icon]="faPlus" (click)="handleAddFatura()">
+        </fa-icon>
+        <div class="loader-container">
+            <div class="loader" *ngIf="isLoading"></div>
+        </div>
+    </div>
+
 </div>

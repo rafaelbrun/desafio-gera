@@ -1,12 +1,12 @@
 <div *ngIf="!isLoading" class="new-fatura-main">
     <div class="main-container">
-        <form [formGroup]="formUnidadeConsumidora" class="form-container">
-            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="consumo" [type]="'number'"
+        <form [formGroup]="formFatura" class="form-container">
+            <app-input [parentForm]="formFatura" inputFormName="consumo" [type]="'number'"
                 [label]="'Consumo *'"></app-input>
-            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="valor" [type]="'number'"
+            <app-input [parentForm]="formFatura" inputFormName="valor" [type]="'number'"
                 [label]="'Valor *'">
             </app-input>
-            <app-input [parentForm]="formUnidadeConsumidora" inputFormName="data_de_vencimento"
+            <app-input [parentForm]="formFatura" inputFormName="data_de_vencimento"
                 [label]="'Data de vencimento * (dd/mm/aaaa)'">
             </app-input>
         </form>
@@ -14,7 +14,7 @@
             <label>
                 Unidade Consumidora *
             </label>
-            <select id="uc" [(ngModel)]="ucIdSelected">
+            <select id="uc" [(ngModel)]="selectedUcId">
                 <option *ngFor="let unidadeConsumidora of unidadesConsumidora" [value]="unidadeConsumidora.id">
                     {{unidadeConsumidora.nome}}</option>
             </select>

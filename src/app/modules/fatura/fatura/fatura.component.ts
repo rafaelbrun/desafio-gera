@@ -5,6 +5,7 @@ import { IFatura } from '@app/shared/interfaces/IFatura';
 import { IUnidadeConsumidora } from '@app/shared/interfaces/IUnidadeConsumidora';
 import { FaturaService } from '@app/shared/services/fatura.service';
 import { UnidadeConsumidoraService } from '@app/shared/services/unidade-consumidora.service';
+import { validateDate } from '@app/shared/utils/validateDate';
 import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -18,10 +19,10 @@ export class FaturaComponent implements OnInit {
   faArrowLeft = faArrowLeft;
 
   faturaEdit: IFatura;
-  ucIdSelected: number;
+  selectedUcId: number;
   unidadesConsumidora: IUnidadeConsumidora[];
 
-  formUnidadeConsumidora: FormGroup;
+  formFatura: FormGroup;
 
   isLoading = false;
   hasError = false;
@@ -59,13 +60,13 @@ export class FaturaComponent implements OnInit {
   setFormFatura(fatura?: IFatura, idUc?: number) {
     this.unidadeConsumidoraService.getAll().subscribe(unidades => {
       this.unidadesConsumidora = unidades;
-      this.ucIdSelected = idUc || this.unidadesConsumidora[0].id;
+      this.selectedUcId = idUc || this.unidadesConsumidora[0].id;
     })
     var faturaForm;
 
     faturaForm = fatura || { consumo: '', valor: '', data_de_vencimento: '' };
 
-    this.formUnidadeConsumidora = this.formBuilder.group({
+    this.formFatura = this.formBuilder.group({
       consumo: [faturaForm.consumo, Validators.required],
       valor: [faturaForm.valor, Validators.required],
       data_de_vencimento: [faturaForm.data_de_vencimento, Validators.required]
@@ -73,12 +74,12 @@ export class FaturaComponent implements OnInit {
   }
 
   handleSaveUnidadeConsumidora() {
-    if (this.formUnidadeConsumidora.valid && this.validateDataVencimento()) {
+    if (this.formFatura.valid && validateDate(this.formFatura.controls.data_de_vencimento.value)) {
       const faturaSender: IFatura = {
-        consumo: this.formUnidadeConsumidora.controls.consumo.value,
-        valor: this.formUnidadeConsumidora.controls.valor.value,
-        data_de_vencimento: this.formUnidadeConsumidora.controls.data_de_vencimento.value,
-        unidadeConsumidoraId: this.ucIdSelected
+        consumo: this.formFatura.controls.consumo.value,
+        valor: this.formFatura.controls.valor.value,
+        data_de_vencimento: this.formFatura.controls.data_de_vencimento.value,
+        unidadeConsumidoraId: this.selectedUcId
       }
       this.isLoading = true;
       if (this.faturaEdit?.id) {
@@ -96,19 +97,5 @@ export class FaturaComponent implements OnInit {
 
     this.hasError = true;
     this.messageError = 'Informe os campos corretamente'
-  }
-
-  validateDataVencimento() {
-    const data = this.formUnidadeConsumidora.controls.data_de_vencimento.value;
-    var matches: any = /^(\d{2})[-\/](\d{2})[-\/](\d{4})$/.exec(data);
-
-    if (matches == null) return false;
-
-    var d = matches[1];
-    var m = matches[2] - 1;
-    var y = matches[3];
-    var composedDate = new Date(y, m, d);
-
-    return composedDate.getDate() == d && composedDate.getMonth() == m && composedDate.getFullYear() == y;
   }
 }
