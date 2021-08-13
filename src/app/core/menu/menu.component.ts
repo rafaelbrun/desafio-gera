@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   navigateTo(address: string) {
-    this.isUnidadeConsumidora = address === 'unidades-consumidora';
+    this.isUnidadeConsumidora = address === 'unidades-consumidoras';
     this.router.navigate([`/${address}`]);
   }
 }

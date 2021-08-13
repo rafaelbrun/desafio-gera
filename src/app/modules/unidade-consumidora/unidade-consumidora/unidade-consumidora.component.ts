@@ -73,23 +73,25 @@ export class UnidadeConsumidoraComponent implements OnInit {
 
   handleSaveUnidadeConsumidora() {
     if (this.formUnidadeConsumidora.valid) {
+      this.isLoading = true;
+
       const ucSender: IUnidadeConsumidora = {
         nome: this.formUnidadeConsumidora.controls.nome.value,
         endereco: this.formUnidadeConsumidora.controls.endereco.value,
         numero: this.formUnidadeConsumidora.controls.numero.value,
         distribuidora: this.formUnidadeConsumidora.controls.distribuidora.value
       }
-      this.isLoading = true;
-      if (this.unidadeConsumidoraEdit.id) {
+      
+      if (this.unidadeConsumidoraEdit) {
         this.unidadeConsumidoraService.put(this.unidadeConsumidoraEdit.id, ucSender).subscribe(data => {
           this.isLoading = false;
-          this.router.navigate(['/unidades-consumidora']);
+          this.router.navigate(['/unidades-consumidoras']);
         });
         return;
       }
       this.unidadeConsumidoraService.post(ucSender).subscribe(data => {
         this.isLoading = false;
-        this.router.navigate(['/unidades-consumidora']);
+        this.router.navigate(['/unidades-consumidoras']);
       });
     }
 

@@ -1,7 +1,7 @@
 <div class="unidade-consumidora-main">
     <div class="button-container">
         <app-button [buttonLabel]="'ADICIONAR'" [iconName]="faPlus"
-            [routerLink]="'/unidades-consumidora/unidade-consumidora'"></app-button>
+            [routerLink]="'/unidades-consumidoras/unidade-consumidora'"></app-button>
     </div>
     <table class="table-container" *ngIf="!isLoading">
         <tr class="table-header">
@@ -13,7 +13,7 @@
             <th>Número</th>
             <th>Ações</th>
         </tr>
-        <tr class="table-body" *ngFor="let unidadeConsumidora of unidadesConsumidora; let i = index">
+        <tr class="table-body" *ngFor="let unidadeConsumidora of unidadesConsumidoras; let i = index">
             <td class="text-center">
                 {{i+1}}
             </td>

@@ -3,11 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { UnidadesConsumidoraComponent } from './unidades-consumidora.component';
+import { UnidadesConsumidorasComponent } from './unidades-consumidorass.component';
 
-describe('UnidadesConsumidoraComponent', () => {
-  let component: UnidadesConsumidoraComponent;
-  let fixture: ComponentFixture<UnidadesConsumidoraComponent>;
+describe('UnidadesConsumidorasComponent', () => {
+  let component: UnidadesConsumidorasComponent;
+  let fixture: ComponentFixture<UnidadesConsumidorasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,13 +16,13 @@ describe('UnidadesConsumidoraComponent', () => {
         ReactiveFormsModule,
         RouterTestingModule
       ],
-      declarations: [ UnidadesConsumidoraComponent ]
+      declarations: [ UnidadesConsumidorasComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UnidadesConsumidoraComponent);
+    fixture = TestBed.createComponent(UnidadesConsumidorasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

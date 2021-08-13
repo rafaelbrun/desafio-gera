@@ -15,7 +15,7 @@
                 Unidade Consumidora *
             </label>
             <select id="uc" [(ngModel)]="selectedUcId">
-                <option *ngFor="let unidadeConsumidora of unidadesConsumidora" [value]="unidadeConsumidora.id">
+                <option *ngFor="let unidadeConsumidora of unidadesConsumidoras" [value]="unidadeConsumidora.id">
                     {{unidadeConsumidora.nome}}</option>
             </select>
         </div>

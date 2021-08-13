@@ -20,7 +20,7 @@ export class FaturaComponent implements OnInit {
 
   faturaEdit: IFatura;
   selectedUcId: number;
-  unidadesConsumidora: IUnidadeConsumidora[];
+  unidadesConsumidoras: IUnidadeConsumidora[];
 
   formFatura: FormGroup;
 
@@ -59,8 +59,8 @@ export class FaturaComponent implements OnInit {
 
   setFormFatura(fatura?: IFatura, idUc?: number) {
     this.unidadeConsumidoraService.getAll().subscribe(unidades => {
-      this.unidadesConsumidora = unidades;
-      this.selectedUcId = idUc || this.unidadesConsumidora[0].id;
+      this.unidadesConsumidoras = unidades;
+      this.selectedUcId = idUc || this.unidadesConsumidoras[0].id;
     })
     var faturaForm;
 

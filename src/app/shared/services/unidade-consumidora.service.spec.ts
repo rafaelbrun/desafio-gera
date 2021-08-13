@@ -26,8 +26,8 @@ describe('UnidadeConsumidoraService', () => {
 		httpTestingController = TestBed.inject(HttpTestingController);
 	});
 
-	it('should retrieve all unidades consumidora', () => {
-		const mockUnidadesConsumidora: IUnidadeConsumidora[] = [
+	it('should retrieve all unidades consumidoras', () => {
+		const mockUnidadesConsumidoras: IUnidadeConsumidora[] = [
 			{
 				id: 1,
 				nome: 'Unidade 01',
@@ -45,15 +45,15 @@ describe('UnidadeConsumidoraService', () => {
 		];
 
 		unidadeConsumidoraService.getAll().subscribe(unidade => {
-			expect(unidade[0].id).toEqual(mockUnidadesConsumidora[0].id);
-			expect(unidade[1].id).toEqual(mockUnidadesConsumidora[1].id);
+			expect(unidade[0].id).toEqual(mockUnidadesConsumidoras[0].id);
+			expect(unidade[1].id).toEqual(mockUnidadesConsumidoras[1].id);
 		});
 
 		const req = httpTestingController.expectOne(`${environment.url_api}/unidadeConsumidora`);
 
 		expect(req.request.method).toEqual('GET');
 
-		req.flush(mockUnidadesConsumidora);
+		req.flush(mockUnidadesConsumidoras);
 	});
 
 	it('should retrieve one unidade consumidora', () => {

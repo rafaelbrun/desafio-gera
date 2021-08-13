@@ -9,11 +9,11 @@ import { IUnidadeConsumidora } from 'src/app/shared/interfaces/IUnidadeConsumido
 import { UnidadeConsumidoraService } from 'src/app/shared/services/unidade-consumidora.service';
 
 @Component({
-  selector: 'app-unidades-consumidora',
-  templateUrl: './unidades-consumidora.component.html',
-  styleUrls: ['./unidades-consumidora.component.scss']
+  selector: 'app-unidades-consumidoras',
+  templateUrl: './unidades-consumidoras.component.html',
+  styleUrls: ['./unidades-consumidoras.component.scss']
 })
-export class UnidadesConsumidoraComponent implements OnInit {
+export class UnidadesConsumidorasComponent implements OnInit {
 
   faEye = faEye;
   faPencil = faPencilAlt;
@@ -22,7 +22,7 @@ export class UnidadesConsumidoraComponent implements OnInit {
 
   formFatura: FormGroup;
 
-  unidadesConsumidora: IUnidadeConsumidora[];
+  unidadesConsumidoras: IUnidadeConsumidora[];
   selectedUcId: number;
 
   isLoading = false;
@@ -44,8 +44,8 @@ export class UnidadesConsumidoraComponent implements OnInit {
   loadData() {
     this.isLoading = true;
     this.unidadeConsumidoraService.getAll()
-      .subscribe((unidadesConsumidora: IUnidadeConsumidora[]) => {
-        this.unidadesConsumidora = unidadesConsumidora;
+      .subscribe((unidadesConsumidoras: IUnidadeConsumidora[]) => {
+        this.unidadesConsumidoras = unidadesConsumidoras;
         this.isLoading = false;
       });
   }
@@ -91,7 +91,7 @@ export class UnidadesConsumidoraComponent implements OnInit {
 
   async navigateToUnidadeConsumidora(id: number, editing: boolean) {
     const queryParams = editing ? { id, editing } : { id };
-    await this.router.navigate(['/unidades-consumidora/unidade-consumidora'], {
+    await this.router.navigate(['/unidades-consumidoras/unidade-consumidora'], {
       queryParams
     });
   }
