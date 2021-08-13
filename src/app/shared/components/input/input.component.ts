@@ -9,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class InputComponent {
 
   @Input() label: string = '';
-  @Input() parentForm!: FormGroup;
+  @Input() parentForm: FormGroup;
   @Input() type: string = 'text';
   @Input() inputFormName: string = '';
   @Input() disabled: boolean;

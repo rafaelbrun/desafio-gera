@@ -17,7 +17,7 @@ export class UnidadeConsumidoraComponent implements OnInit {
 
   unidadeConsumidoraEdit: IUnidadeConsumidora;
 
-  formUnidadeConsumidora!: FormGroup;
+  formUnidadeConsumidora: FormGroup;
 
   isLoading = false;
   hasError = false;
@@ -44,7 +44,7 @@ export class UnidadeConsumidoraComponent implements OnInit {
       if (queryParams.id) {
         this.isLoading = true;
         this.unidadeConsumidoraService.getById(queryParams.id).subscribe((unidade) => {
-          this.unidadeConsumidoraEdit = unidade[0];
+          this.unidadeConsumidoraEdit = unidade;
           this.isLoading = false;
           this.setFormUnidadeConsummidora(this.unidadeConsumidoraEdit);
         });

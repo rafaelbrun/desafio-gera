@@ -17,8 +17,8 @@ export class UnidadeConsumidoraService {
 		return this.http.get<IUnidadeConsumidora[]>(`${environment.url_api}/${this.baseUrl}`);
 	}
 
-	getById(id: number): Observable<IUnidadeConsumidora[]> {
-		return this.http.get<IUnidadeConsumidora[]>(`${environment.url_api}/${this.baseUrl}/${id}`);
+	getById(id: number): Observable<IUnidadeConsumidora> {
+		return this.http.get<IUnidadeConsumidora>(`${environment.url_api}/${this.baseUrl}/${id}`);
 	}
 
 	post(unidadeConsumidora: IUnidadeConsumidora): Observable<IUnidadeConsumidora> {
