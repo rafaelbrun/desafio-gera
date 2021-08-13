@@ -17,9 +17,20 @@
         display: none;
     }
 
+    .header-table {
+        width: 80%;
+        padding: .7rem 0;
+        margin-top: 1rem;
+        background-color: rgb(34, 34, 34);
+        color: white;
+
+        label {
+            padding: 1rem;
+        }
+    }
+
     .table-container {
         width: 80%;
-        margin-top: 1rem;
         border-collapse: collapse;
         font-size: 14px;
 
@@ -131,6 +142,14 @@
                     border: none !important;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    ::ng-deep .header-table {
+        label {
+            font-size: 12px;
         }
     }
 }

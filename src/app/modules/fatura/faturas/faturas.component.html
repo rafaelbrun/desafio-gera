@@ -3,6 +3,11 @@
         <app-button [buttonLabel]="'ADICIONAR'" [iconName]="faPlus"
             [routerLink]="'/faturas/fatura'"></app-button>
     </div>
+    <div class="header-table">
+        <label>
+            Lista de Faturas
+        </label>
+    </div>
     <table class="table-container" *ngIf="!isLoading">
         <tr class="table-header">
             <th>#</th>
